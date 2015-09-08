@@ -30,11 +30,11 @@
       <div ng-show="createCtrl.submitted">
         <md-card>
           <md-card-content>
-            <h2 class="md-title">{{createCtrl.form.rideName}}</h2>
-            <p>Rider: {{user.username}}</p>
+            <h2 class="md-title">{{createCtrl.result.rideName}}</h2>
+            <p>Rider: {{createCtrl.result.riderName}}</p>
             <p>Pillion Rider: Empty</p>
-            <p>Location: {{createCtrl.form.location}}</p>
-            <p>Time: {{createCtrl.form.time}}</p>
+            <p>Location: {{createCtrl.result.location}}</p>
+            <p>Time: {{createCtrl.result.time}}</p>
           </md-card-content>
           <div class="md-actions" layout="row" layout-align="end center">
             <md-button ng-click="createCtrl.shareTimeline()">Share To Timeline</md-button>

@@ -31,6 +31,7 @@ function DatabaseService ($rootScope, $http) {
     createRide: function createRide (rideData) {
       console.log('in db createRide');
       rideData.riderID = $rootScope.user.userID;
+      rideData.riderName = $rootScope.user.username;
       let req = {
         method: 'POST',
         url: API_SERVER + API_VERSION + '/ride/create',
@@ -44,8 +45,16 @@ function DatabaseService ($rootScope, $http) {
     getRide: function getRide (rideID) {
       let req = {
         method: 'GET',
-        url: API_SERVER + API_VERSION + '/ride/' + rideID
+        url: API_SERVER + '/ride/' + rideID
       }
+      return requestWrapper(req);
+    },
+
+    getAllRides: function getAllRides () {
+      let req = {
+        method: 'GET',
+        url: API_SERVER + '/rides'
+      };
       return requestWrapper(req);
     },
 
@@ -54,7 +63,10 @@ function DatabaseService ($rootScope, $http) {
       let req = {
         method: 'PUT',
         url: API_SERVER + API_VERSION + '/ride/' + rideID + '/accept',
-        data: $rootScope.user.userID
+        data: {
+          userID: $rootScope.user.userID,
+          username: $rootScope.user.username
+        }
       }
       return requestWrapper(req);
     },

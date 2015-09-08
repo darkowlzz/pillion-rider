@@ -3,6 +3,7 @@ import { LoginController } from './controllers/LoginController';
 import { HomeController } from './controllers/HomeController';
 import { CreateController } from './controllers/CreateController';
 import { SearchController } from './controllers/SearchController';
+import { RideController } from './controllers/RideController';
 
 import { DatabaseService } from './services/Database';
 import { AuthService } from './services/Auth';
@@ -21,6 +22,7 @@ angular
   .controller('HomeCtrl', HomeController)
   .controller('CreateCtrl', CreateController)
   .controller('SearchCtrl', SearchController)
+  .controller('RideCtrl', RideController)
   .factory('database', DatabaseService)
   .factory('Auth', AuthService)
   .factory('Session', SessionService)

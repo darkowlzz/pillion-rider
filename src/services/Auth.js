@@ -1,6 +1,6 @@
 function AuthService ($rootScope, Session, database) {
   return {
-    fbLogin: function fbLogin () {
+    fbLogin: function fbLogin (notMainPage) {
       console.log('inside fbLogin');
       FB.login((response) => {
         if (response.status === 'connected') {
@@ -18,7 +18,11 @@ function AuthService ($rootScope, Session, database) {
                 Session.create(loginData.name, r.token, loginData.accessToken,
                                loginData.userID, loginData.picture);
                 $rootScope.user = Session.sessionData;
-                $rootScope.$broadcast('SUCCESS');
+                if (notMainPage) {
+                  // do nothing
+                } else {
+                  $rootScope.$broadcast('SUCCESS');
+                }
               } else {
                 //$rootScope.$broadcast('FAILED');
                 console.log('IT FAILED!!');

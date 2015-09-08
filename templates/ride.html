@@ -1,0 +1,29 @@
+<div layout="column" flex>
+
+  <div flex class="md-padding">
+    <h3>{{rideCtrl.ride.rideName}}</h3>
+    <md-card>
+      <img src="pillion-ride.jpg" width="100" class="md-card-image">
+      <md-card-content>
+        <h2 class="md-title">{{rideCtrl.ride.rideName}}</h2>
+        <p>Rider: <a ng-href="{{rideCtrl.ride.riderFB}}" target="_blank">{{rideCtrl.ride.riderName}}</a></p>
+        <p>Pillion Rider: <a ng-href="{{rideCtrl.ride.pillionFB}}" target="_blank">{{rideCtrl.ride.pillionName == '' ? "YOU COULD BE HERE!!" : rideCtrl.ride.pillionName}}</a></p>
+        <p>Location: {{rideCtrl.ride.location}}</p>
+        <p>Time: {{rideCtrl.ride.time}}</p>
+
+        <div ng-hide="rideCtrl.accepted" class="md-actions" layout="row" layout-align="end center">
+          <div ng-hide="rideCtrl.accepted">
+            <md-button ng-hide="user.signedIn" class="md-raised md-primary" ng-click="rideCtrl.login()">
+              Log Into Facebook to Accept the Ride
+            </md-button>
+            <md-button ng-show="user.signedIn" class="md-raised md-primary" ng-click="rideCtrl.accept()">
+              Accept the Ride
+            </md-button>
+          </div>
+        </div>
+
+      </md-card-content>
+    </md-card>
+  </div>
+
+</div>

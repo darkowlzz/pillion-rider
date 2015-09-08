@@ -29,11 +29,11 @@ function config ($stateProvider, $urlRouterProvider, $httpProvider) {
       controller: 'SearchCtrl',
       controllerAs: 'searchCtrl'
     })
-    .state('home.result', {
-      url: '/result',
-      templateUrl: 'templates/result.html',
-      controller: 'ResultCtrl',
-      controllerAs: 'resultCtrl'
+    .state('ride', {
+      url: '/ride/:rideID',
+      templateUrl: 'templates/ride.html',
+      controller: 'RideCtrl',
+      controllerAs: 'rideCtrl'
     });
 }
 

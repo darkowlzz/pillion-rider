@@ -1,9 +1,26 @@
 <div layout="column" flex>
 
   <div flex class="md-padding">
-    <div layout="row" layout-align="center center">
-      <p>No available rides at the moment.</p>
+
+    <div layout="column" layout-align="center center">
+      <md-card ng-repeat="ride in searchCtrl.rides">
+        <md-card-content>
+          <h2 class="md-title">{{ride.rideName}}</h2>
+          <div>
+            <p>Rider: {{ride.riderName}}</p>
+            <p>Pillion Rider: {{ ride.pillionName == "" ? "Nobody" : ride.pillionName }}</p>
+          </div>
+          <div>
+            <span>Location: {{ride.location}}</span>
+            <span>Time: {{ride.time}}</span>
+          </div>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-raised md-accent" ng-click="searchCtrl.ridePage(ride.rideID)">View Ride</md-button>
+        </div>
+      </md-card>
     </div>
+
   </div>
 
 </div>
