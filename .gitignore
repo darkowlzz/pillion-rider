@@ -1,0 +1,8 @@
+node_modules
+dist
+.idea
+*.swp
+*.swo
+bower_components
+server-compiled.js
+npm-debug.log
