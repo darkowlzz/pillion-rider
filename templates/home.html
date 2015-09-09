@@ -1,11 +1,6 @@
 <div layout="column" flex>
 
   <div flex class="md-padding">
-    <!--
-    <div layout="row" layout-align="center center">
-      <h2>Pillion Rider</h2>
-    </div>
-    -->
 
     <div id="profilePic" layout="row" layout-align="start center">
       <img ng-src="{{homeCtrl.picture}}" alt="Profile Picture"/>
@@ -13,12 +8,13 @@
     </div>
 
     <div layout="column" layout-align="start center">
-      <p>Welcome to Pillion Rider. A place to find pillion rider and get found by pillion rider searchers.</p>
+      <p>Welcome to Pillion Rider. A place to find pillion riders and get found by people who are looking for pillion riders.</p>
     </div>
 
     <div layout="row" layout-align="center center">
       <md-button class="md-raised md-primary" ui-sref="home.create">Create a Ride</md-button>
       <md-button class="md-raised md-primary" ui-sref="home.search">Find a Ride</md-button>
+      <md-button class="md-raised md-primary" ui-sref="home.myrides">My Rides</md-button>
     </div>
 
     <div ui-view></div>

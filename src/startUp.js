@@ -15,7 +15,6 @@ function startUp ($rootScope, $state, $window, Session, Auth) {
   $rootScope.$on('LOGOUT', showLogin);
 
   function showHome () {
-    console.log('got SUCCESS event');
     $state.go('home');
   }
 

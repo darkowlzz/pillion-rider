@@ -2,12 +2,12 @@
 
   <div flex class="md-padding">
     <div layout="row" layout-align="center center">
-      <p>Below are the available rides at the moment.</p>
+      <p>Below are the rides created by you.</p>
     </div>
   </div>
 
   <div layout="column" layout-align="center center">
-    <md-card ng-repeat="ride in searchCtrl.rides">
+    <md-card ng-repeat="ride in myRidesCtrl.rides">
       <md-card-content>
         <h2 class="md-title">{{ride.rideName}}</h2>
         <div>
@@ -20,9 +20,10 @@
         </div>
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
-        <md-button class="md-raised md-accent" ng-click="searchCtrl.ridePage(ride.rideID)">View Ride</md-button>
+        <md-button class="md-raised md-accent" ng-click="myRidesCtrl.ridePage(ride.rideID)">View Ride</md-button>
       </div>
     </md-card>
   </div>
 
 </div>
+

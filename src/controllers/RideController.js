@@ -14,7 +14,6 @@ class RideController {
       time: ''
     };
     database.getRide($stateParams.rideID).then((resp) => {
-      console.log('got ride details', resp);
       this.ride.rideName = resp.rideName;
       this.ride.location = resp.location;
       this.ride.time = resp.time;
@@ -34,9 +33,7 @@ class RideController {
 
   accept () {
     this.database.acceptRide(this.stateParams.rideID).then((resp) => {
-      console.log('RIDE ACCEPTED!');
       this.ride.pillion = this.rootScope.user.username;
-      console.log('reload now');
       this.window.location.reload();
     });
   }

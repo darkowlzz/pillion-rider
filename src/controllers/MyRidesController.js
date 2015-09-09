@@ -1,8 +1,8 @@
-class SearchController {
+class MyRidesController {
   constructor (database, $window) {
     this.window = $window;
     this.rides = [];
-    database.getAllRides().then((r) => {
+    database.getMyRides().then((r) => {
       this.rides = r;
     });
   }
@@ -10,8 +10,9 @@ class SearchController {
   ridePage (rideID) {
     this.window.open('/#/ride/' + rideID, '_blank');
   }
+
 }
 
-SearchController.$inject = ['database', '$window'];
+MyRidesController.$inject = ['database', '$window'];
 
-export { SearchController };
+export { MyRidesController };

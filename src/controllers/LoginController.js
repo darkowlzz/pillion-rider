@@ -8,7 +8,6 @@ class LoginController {
   }
 
   fbLogin () {
-    console.log('clicked on fb login');
     this.Auth.fbLogin();
   }
 

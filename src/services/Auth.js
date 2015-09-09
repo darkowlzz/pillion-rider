@@ -1,10 +1,8 @@
 function AuthService ($rootScope, Session, database) {
   return {
     fbLogin: function fbLogin (notMainPage) {
-      console.log('inside fbLogin');
       FB.login((response) => {
         if (response.status === 'connected') {
-          console.log('fb connected');
           FB.api('/me?fields=id,name,picture', (resp) => {
             let loginData = {
               accessToken: response.authResponse.accessToken,
@@ -13,7 +11,6 @@ function AuthService ($rootScope, Session, database) {
               picture: resp.picture.data.url
             };
             database.login(loginData).then((r) => {
-              console.log('got response', r);
               if (!! r.success) {
                 Session.create(loginData.name, r.token, loginData.accessToken,
                                loginData.userID, loginData.picture);
@@ -25,7 +22,6 @@ function AuthService ($rootScope, Session, database) {
                 }
               } else {
                 //$rootScope.$broadcast('FAILED');
-                console.log('IT FAILED!!');
               }
             }, (err) => {
               // HANDLE THIS

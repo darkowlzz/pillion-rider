@@ -1,17 +1,15 @@
 function DatabaseService ($rootScope, $http) {
-  const API_SERVER = 'http://localhost:3000';
+  //const API_SERVER = 'http://localhost:3000';
+  const API_SERVER = 'https://pillionrider.herokuapp.com'
   const API_VERSION = '/api/v1';
 
   // Request Wrapper to perform http request
   function requestWrapper (rqst) {
-    console.log('in request wrapper');
     let promise = $http(rqst).then((resp) => {
-      console.log('got response');
-      console.log(resp.status);
       return resp.data;
     }, (err) => {
       if (err.status === 401) {
-        //$rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+        $rootScope.$broadcast('LOGOUT');
       }
     });
     return promise;
@@ -29,7 +27,6 @@ function DatabaseService ($rootScope, $http) {
 
     // Create a ride
     createRide: function createRide (rideData) {
-      console.log('in db createRide');
       rideData.riderID = $rootScope.user.userID;
       rideData.riderName = $rootScope.user.username;
       let req = {
@@ -53,7 +50,15 @@ function DatabaseService ($rootScope, $http) {
     getAllRides: function getAllRides () {
       let req = {
         method: 'GET',
-        url: API_SERVER + '/rides'
+        url: API_SERVER + API_VERSION + '/rides'
+      };
+      return requestWrapper(req);
+    },
+
+    getMyRides: function getMyRides () {
+      let req = {
+        method: 'GET',
+        url: API_SERVER + API_VERSION + '/myrides/' + $rootScope.user.userID
       };
       return requestWrapper(req);
     },

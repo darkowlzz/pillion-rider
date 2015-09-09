@@ -29,6 +29,12 @@ function config ($stateProvider, $urlRouterProvider, $httpProvider) {
       controller: 'SearchCtrl',
       controllerAs: 'searchCtrl'
     })
+    .state('home.myrides', {
+      url: '/myrides',
+      templateUrl: 'templates/myrides.html',
+      controller: 'MyRidesCtrl',
+      controllerAs: 'myRidesCtrl'
+    })
     .state('ride', {
       url: '/ride/:rideID',
       templateUrl: 'templates/ride.html',
