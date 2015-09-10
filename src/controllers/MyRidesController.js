@@ -1,12 +1,14 @@
 class MyRidesController {
-  constructor (database, $window) {
+  constructor ($rootScope, database, $window) {
     this.window = $window;
     this.rides = [];
     this.loading = true;
 
-    database.getMyRides().then((r) => {
-      this.loading = false;
-      this.rides = r;
+    $rootScope.$on('PILLION-MYRIDES', () => {
+      database.getMyRides().then((r) => {
+        this.loading = false;
+        this.rides = r;
+      });
     });
   }
 
@@ -16,6 +18,6 @@ class MyRidesController {
 
 }
 
-MyRidesController.$inject = ['database', '$window'];
+MyRidesController.$inject = ['$rootScope', 'database', '$window'];
 
 export { MyRidesController };

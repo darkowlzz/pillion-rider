@@ -1,12 +1,14 @@
 class SearchController {
-  constructor (database, $window) {
+  constructor ($rootScope, database, $window) {
     this.window = $window;
     this.rides = [];
     this.loading = true;
 
-    database.getAllRides().then((r) => {
-      this.loading = false;
-      this.rides = r;
+    $rootScope.$on('PILLION-SEARCH', () => {
+      database.getAllRides().then((r) => {
+        this.loading = false;
+        this.rides = r;
+      });
     });
   }
 
@@ -15,6 +17,6 @@ class SearchController {
   }
 }
 
-SearchController.$inject = ['database', '$window'];
+SearchController.$inject = ['$rootScope', 'database', '$window'];
 
 export { SearchController };

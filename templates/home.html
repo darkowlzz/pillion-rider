@@ -18,13 +18,13 @@
         </div>
       </md-tab>
 
-      <md-tab label="Search Ride Tab">
+      <md-tab label="Search Ride Tab" md-on-select="homeCtrl.searchSelected()">
         <div ng-controller="SearchCtrl as searchCtrl">
           <search-ride></search-ride>
         </div>
       </md-tab>
 
-      <md-tab label="My Rides Tab">
+      <md-tab label="My Rides Tab" md-on-select="homeCtrl.myRidesSelected()">
         <div ng-controller="MyRidesCtrl as myRidesCtrl">
           <my-rides></my-rides>
         </div>
