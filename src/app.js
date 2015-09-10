@@ -6,6 +6,10 @@ import { SearchController } from './controllers/SearchController';
 import { RideController } from './controllers/RideController';
 import { MyRidesController } from './controllers/MyRidesController';
 
+import { CreateRide } from './directives/CreateRide';
+import { SearchRide } from './directives/SearchRide';
+import { MyRides } from './directives/MyRides';
+
 import { DatabaseService } from './services/Database';
 import { AuthService } from './services/Auth';
 import { SessionService } from './services/Session';
@@ -25,6 +29,9 @@ angular
   .controller('SearchCtrl', SearchController)
   .controller('RideCtrl', RideController)
   .controller('MyRidesCtrl', MyRidesController)
+  .directive('createRide', CreateRide)
+  .directive('searchRide', SearchRide)
+  .directive('myRides', MyRides)
   .factory('database', DatabaseService)
   .factory('Auth', AuthService)
   .factory('Session', SessionService)

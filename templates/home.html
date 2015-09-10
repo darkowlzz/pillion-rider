@@ -11,14 +11,25 @@
       <p>Welcome to Pillion Rider. A place to find pillion riders and get found by people who are looking for pillion riders.</p>
     </div>
 
-    <div layout="row" layout-align="center center">
-      <md-button class="md-raised md-primary" ui-sref="home.create">Create a Ride</md-button>
-      <md-button class="md-raised md-primary" ui-sref="home.search">Find a Ride</md-button>
-      <md-button class="md-raised md-primary" ui-sref="home.myrides">My Rides</md-button>
-    </div>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Create Ride Tab">
+        <div ng-controller="CreateCtrl as createCtrl">
+          <create-ride></create-ride>
+        </div>
+      </md-tab>
 
-    <div ui-view></div>
+      <md-tab label="Search Ride Tab">
+        <div ng-controller="SearchCtrl as searchCtrl">
+          <search-ride></search-ride>
+        </div>
+      </md-tab>
 
-    
+      <md-tab label="My Rides Tab">
+        <div ng-controller="MyRidesCtrl as myRidesCtrl">
+          <my-rides></my-rides>
+        </div>
+      </md-tab>
+    </md-tabs>
+
   </div>
 </div>
