@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Find your pillion rider",
   "scripts": {
-    "start": "npm run build && node server-compiled.js",
+    "start": "npm run build && ./node_modules/.bin/http-server -p 8000",
     "build": "gulp build",
     "pre-deploy": "npm build && mkdir -p deploy/ && cp -r dist endswith.js pillion-ride.jpg index.html templates config/ deploy/",
     "divshot-push": "cd deploy/ && ../node_modules/.bin/divshot push",
@@ -17,6 +17,7 @@
     "divshot-cli": "^1.10.5",
     "gulp": "~3.8.10",
     "gulp-rename": "^1.2.0",
+    "http-server": "^0.8.0",
     "lodash": "^2.4.1",
     "rimraf": "~2.2.8",
     "vinyl-source-stream": "^1.0.0",

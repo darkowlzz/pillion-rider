@@ -2,12 +2,19 @@
   <div flex class="md-padding">
     <div layout="column" layout-align="center center">
       <div>
-        <h3>Login Page</h3>
+        <h3 align="center">Welcome to Pillion Rider.<h3>
       </div>
       <div>
+        <p align="center">A place to find pillion riders and get found by people who are looking for pillion riders.</p>
+      </div>
+      <div ng-hide="loginCtrl.loading">
         <md-button ng-click="loginCtrl.fbLogin()" class="md-raised md-primary">
           Log in with Facebook
         </md-button>
+      </div>
+      <div ng-show="loginCtrl.loading">
+        <div layout="row" layout-sm="column" layout-align="space-around"> <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
       </div>
     </div>
   </div>

@@ -4,10 +4,12 @@ class LoginController {
       $state.go('home');
     } else {
       this.Auth = Auth;
+      this.loading = false;
     }
   }
 
   fbLogin () {
+    this.loading = true;
     this.Auth.fbLogin();
   }
 

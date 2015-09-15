@@ -7,24 +7,20 @@
       <span id="fb-welcome">{{user.username}}</span>
     </div>
 
-    <div layout="column" layout-align="start center">
-      <p>Welcome to Pillion Rider. A place to find pillion riders and get found by people who are looking for pillion riders.</p>
-    </div>
-
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="Create Ride Tab">
-        <div ng-controller="CreateCtrl as createCtrl">
-          <create-ride></create-ride>
-        </div>
-      </md-tab>
-
-      <md-tab label="Search Ride Tab" md-on-select="homeCtrl.searchSelected()">
+    <md-tabs md-center-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Search Ride" label-sm="Search" md-on-select="homeCtrl.searchSelected()">
         <div ng-controller="SearchCtrl as searchCtrl">
           <search-ride></search-ride>
         </div>
       </md-tab>
 
-      <md-tab label="My Rides Tab" md-on-select="homeCtrl.myRidesSelected()">
+      <md-tab label="Create Ride">
+        <div ng-controller="CreateCtrl as createCtrl">
+          <create-ride></create-ride>
+        </div>
+      </md-tab>
+
+      <md-tab label="My Rides" md-on-select="homeCtrl.myRidesSelected()">
         <div ng-controller="MyRidesCtrl as myRidesCtrl">
           <my-rides></my-rides>
         </div>
