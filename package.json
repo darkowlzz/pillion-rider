@@ -4,21 +4,25 @@
   "description": "Find your pillion rider",
   "scripts": {
     "start": "npm run build && node server-compiled.js",
-    "build": "gulp build"
+    "build": "gulp build",
+    "pre-deploy": "npm build && mkdir -p deploy/ && cp -r dist endswith.js pillion-ride.jpg index.html templates config/ deploy/",
+    "divshot-push": "cd deploy/ && ../node_modules/.bin/divshot push",
+    "divshot-promote": "cd deploy/ && ../node_modules/.bin/divshot promote development production",
+    "deploy": "npm run pre-deploy && npm run divshot-push && npm divshot-promote"
   },
   "devDependencies": {
     "babelify": "~5.0.3",
     "browser-sync": "^1.7.1",
     "browserify": "^6.3.3",
+    "divshot-cli": "^1.10.5",
     "gulp": "~3.8.10",
     "gulp-rename": "^1.2.0",
     "lodash": "^2.4.1",
     "rimraf": "~2.2.8",
-    "watchify": "^2.1.1",
-    "vinyl-source-stream": "^1.0.0"
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.1"
   },
   "author": "Sunny <me@darkowlzz.space>",
   "license": "MIT",
-  "dependencies": {
-  }
+  "dependencies": {}
 }

@@ -4,5 +4,5 @@ dist
 *.swp
 *.swo
 bower_components
-server-compiled.js
 npm-debug.log
+deploy

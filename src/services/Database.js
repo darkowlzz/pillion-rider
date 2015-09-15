@@ -1,6 +1,5 @@
 function DatabaseService ($rootScope, $http) {
-  const API_SERVER = 'http://localhost:3000';
-  //const API_SERVER = 'https://pillionrider.herokuapp.com';
+  const API_SERVER = Constants.API_SERVER || 'http://localhost:3000';
   const API_VERSION = '/api/v1';
 
   // Request Wrapper to perform http request
