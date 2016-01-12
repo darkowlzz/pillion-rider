@@ -32,7 +32,8 @@ function AuthService ($rootScope, Session, database) {
         } else {
 
         }
-      });
+      }, {scope: 'public_profile,email,user_friends',
+          return_scopes: true});
     },
 
     logout: function logout () {

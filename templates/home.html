@@ -6,15 +6,16 @@
       <img ng-src="{{homeCtrl.picture}}" alt="Profile Picture"/>
       <span id="fb-welcome">{{user.username}}</span>
     </div>
+    <md-button ng-click="homeCtrl.friends()">Friends</md-button>
 
     <md-tabs md-center-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="Search Ride" label-sm="Search" md-on-select="homeCtrl.searchSelected()">
+      <md-tab label="Search" label-sm="Search" md-on-select="homeCtrl.searchSelected()">
         <div ng-controller="SearchCtrl as searchCtrl">
           <search-ride></search-ride>
         </div>
       </md-tab>
 
-      <md-tab label="Create Ride">
+      <md-tab label="Create">
         <div ng-controller="CreateCtrl as createCtrl">
           <create-ride></create-ride>
         </div>

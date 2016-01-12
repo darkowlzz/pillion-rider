@@ -6,6 +6,13 @@ class HomeController {
     this.picture = $rootScope.user.picture;
   }
 
+  friends () {
+    console.log('getting friends...');
+    FB.api('/me/friends', (resp) => {
+      console.log('got resp', resp);
+    });
+  }
+
   searchSelected () {
     this.rootScope.$broadcast('PILLION-SEARCH');
   }

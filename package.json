@@ -8,7 +8,7 @@
     "pre-deploy": "npm build && mkdir -p deploy/ && cp -r dist endswith.js pillion-ride.jpg index.html templates config/ deploy/",
     "divshot-push": "cd deploy/ && ../node_modules/.bin/divshot push",
     "divshot-promote": "cd deploy/ && ../node_modules/.bin/divshot promote development production",
-    "deploy": "npm run pre-deploy && npm run divshot-push && npm divshot-promote"
+    "deploy": "npm run pre-deploy && npm run divshot-push && npm run divshot-promote"
   },
   "devDependencies": {
     "babelify": "~5.0.3",
